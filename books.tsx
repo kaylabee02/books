@@ -22,6 +22,8 @@ const useBooks = create<BooksState>((set) => ({
   fetchBooks: async () => {
     try {
       const { data, error } = await supabase.from<Book>("books").select("*");
+      
+      
       if (error) {
         throw error;
       }
