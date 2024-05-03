@@ -3,12 +3,11 @@ import React, { useCallback, useEffect } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { useQuery } from "react-query";
 import useBooks from "./books";
-
 const AppNavigator: React.FC = () => {
   const { fetchBooks, books, fetchBooks: fetchBooksFromZustand } = useBooks();
 
   const { isLoading, isError, refetch } = useQuery("data", fetchBooks, {
-    retry: 3, // Retry failed requests 3 times
+    retry: 3, 
   });
 
   const handleItemPress = useCallback((item) => {
